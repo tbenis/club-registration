@@ -4,6 +4,7 @@ class CreateClubs < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :description
       t.datetime :date_founded
+      t.belongs_to :user,  foreign_key: true
 
       t.timestamps
     end

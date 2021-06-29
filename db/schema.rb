@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_001426) do
+ActiveRecord::Schema.define(version: 2021_06_29_010809) do
 
   create_table "club_users", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "club_id", null: false
+    t.integer "user_id"
+    t.integer "club_id"
     t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -26,10 +26,21 @@ ActiveRecord::Schema.define(version: 2021_06_29_001426) do
     t.string "name"
     t.text "description"
     t.datetime "date_founded"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_clubs_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "club_users", "clubs"
   add_foreign_key "club_users", "users"
+  add_foreign_key "clubs", "users"
 end
