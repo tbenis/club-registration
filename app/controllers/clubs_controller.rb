@@ -7,7 +7,8 @@ class ClubsController < ApplicationController
         @club = Club.new(club_params)
         @club.user_id = session[:user_id]
         if @club.save
-            redirect_to club_path(@club)
+            redirect_to new_club_club_user_path(@club)
+            # redirect_to club_path(@club)
         else
             flash[:error] = @club.errors.full_messages
             render :new
