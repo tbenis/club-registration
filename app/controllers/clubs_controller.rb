@@ -14,6 +14,10 @@ class ClubsController < ApplicationController
         end
     end
 
+    def show
+        @club = Club.find_by_id(params[:id])
+        redirect_to '/clubs/new' if !@club
+    end
 
     def index
         @clubs =  Club.all
