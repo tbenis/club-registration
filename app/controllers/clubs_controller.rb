@@ -3,4 +3,14 @@ class ClubsController < ApplicationController
         @club  = Club.new
     end
 
+    def create
+        @club = Club.new(club_params)
+        @club.user_id = session[:user_id]
+        if @club.save
+            redirect_to club_path(@club)
+        else
+            render :new
+        end
+    end
+
 end
