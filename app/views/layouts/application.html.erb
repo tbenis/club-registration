@@ -13,8 +13,12 @@
   <body>
     <p>
       <%= link_to  "Logout", logout_path, method: :delete%>
-      <%= link_to "Create a new  club", new_club_path%>
-      <%= link_to "Join an existing club", clubs_path%>
+      <%#= link_to "Create a new  club", new_club_path%>
+      <%#= link_to "Join an existing club", clubs_path%>
+
+      <h2> <%= link_to "Create a Club", new_user_club_url(session[:user_id]) %> </h2>
+      <h2> <%= link_to "All Clubs", user_clubs_url(session[:user_id]) %> </h2>
+
     </p>
     <%= yield %>
   </body>
