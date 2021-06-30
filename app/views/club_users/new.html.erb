@@ -1,0 +1,11 @@
+<h1> aDD MEMBER TO CLUB</h1>
+
+<h1>Create a new Club</h1>
+<p> <%#= flash[:error] %> </p>
+
+<%= form_for(@club_user, url: club_club_users_path(params[:club_id]))  do |f| %>
+  
+  
+  
+  <%= f.submit "Create Club"%>
+<% end %>
