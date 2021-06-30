@@ -1,4 +1,18 @@
 <h1>Welcome <%= @user.name %> </h1>
+<% if @user.clubs.length >= 1%>
+    <h5>Here are all  the  clubs you belong to</h5>
+
+    
+    <% @user.clubs.each do |uc|%>
+        <p><%= link_to uc.name, club_path(uc.id) %> </p>
+    <%end%>
+<% else %>
+    <h5>You have ad belong to no clubs yet</h5>
+<%end%>
+
+<br>
+<br>
+<br>
 <h6>TO DO:</h6>
 
 
