@@ -11,6 +11,8 @@
   </head>
 
   <body>
+      <%= link_to  "Logout", logout_path, method: :delete%>
+      <%= link_to "Create a new  club", new_club_path%>
     <%= yield %>
   </body>
 </html>
