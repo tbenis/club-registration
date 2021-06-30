@@ -1,0 +1,9 @@
+<h1>Log In</h1>
+<p> <%= flash[:error] %> </p>
+
+<%= form_for(:user) do |f| %>
+  Email:  <%= f.email_field :email%>
+  Password:  <%= f.password_field :password%>
+  
+  <%= f.submit "Log In"%>
+<% end %>
