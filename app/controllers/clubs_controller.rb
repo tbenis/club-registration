@@ -20,7 +20,13 @@ class ClubsController < ApplicationController
     end
 
     def index
+
+        if params[:user_id] && @user = User.find_by(id: params[:user_id])
+            @clubs = @user.clubs
+        else
         @clubs =  Club.all
+
+        end
     end
 
     private
