@@ -3,8 +3,8 @@
 <ol>
     <% @clubs.each do |c|%>
     <li>
-        <%= c.name %>: <br>
-        <%= c.description %>
+       <%= link_to c.name, club_path(c.id)%>  <br>
+        <%#= c.description %>
     </li>
     <%end%>
 </ol>
