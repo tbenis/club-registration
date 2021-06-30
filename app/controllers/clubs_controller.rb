@@ -19,4 +19,9 @@ class ClubsController < ApplicationController
         @clubs =  Club.all
     end
 
+    private
+
+    def club_params
+        params.require(:club).permit(:name, :description, :date_founded)
+    end
 end
