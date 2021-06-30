@@ -1,4 +1,6 @@
 <h1>Create a new Club</h1>
+<p> <%= flash[:error] %> </p>
+
 <%= form_for(@club) do |f| %>
   Club Name:  <%= f.text_field :name%>
   Description of Club:  <%= f.text_field :description%>

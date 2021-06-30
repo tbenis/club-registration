@@ -9,6 +9,7 @@ class ClubsController < ApplicationController
         if @club.save
             redirect_to club_path(@club)
         else
+            flash[:error] = @club.errors.full_messages
             render :new
         end
     end
