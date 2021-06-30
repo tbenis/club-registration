@@ -1,0 +1,10 @@
+<h1>Here are all the clubs:</h1>
+
+<ol>
+    <% @clubs.each do |c|%>
+    <li>
+        <%= c.name %>: <br>
+        <%= c.description %>
+    </li>
+    <%end%>
+</ol>
