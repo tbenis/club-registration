@@ -14,4 +14,9 @@ class ClubsController < ApplicationController
         end
     end
 
+
+    def index
+        @clubs =  Club.all
+    end
+
 end
