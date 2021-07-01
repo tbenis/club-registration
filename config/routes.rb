@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/:provider/callback' => 'sessions#create'
+
 
   resources :users
   resources :clubs, only: [:index, :show]
