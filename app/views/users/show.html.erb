@@ -1,11 +1,16 @@
+<% if @user == current_user%>
   <h4>Hello <%= @user.name %>! This is your profile </h4>
   <br>
+<%else%>
   <h4> <%= @user.name %>'s Profile </h4>
   <br>
+<%end%>
+<% if @user.clubs.length > 0%>
   <h5>Here are all  the  clubs you you have  created:</h5>
   <% @user.clubs.each do |uc|%>
     <p><%= link_to uc.name, club_path(uc.id) %> </p>
   <%end%>
+<%end%>
 <br>
   <h4> <%= @user.name %>'s Profile </h4>
 <%end%>
