@@ -7,3 +7,16 @@ class ClubUsersController < ApplicationController
   end
 
 
+  def index
+    @club_users = ClubUser.all
+  end
+
+  def show
+    @club_user = ClubUser.find_by(params[:id])
+  end
+
+  def edit
+    @club_users = ClubUser.where(club_id: params[:id])
+  end
+
+
