@@ -2,8 +2,20 @@
 <p> <%= flash[:error] %> </p>
 
 <%= form_for(:user) do |f| %>
-  Email:  <%= f.email_field :email%>
-  Password:  <%= f.password_field :password%>
-  
-  <%= f.submit "Log In"%>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="user_email">Email</label>
+      <%= f.email_field :email, class:"form-control", placeholder: "Email" %>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="user_password">Password</label>
+      <%= f.password_field :password, class:"form-control", placeholder: "Password"%>
+    </div>
+</div>
+  <%= f.submit "Log In", class: "btn btn-primary"%>
 <% end %>
+<br>
+<%= link_to "back to welcome page", '/' if !session[:user_id].present? %>
+OR
+<%= link_to "Signup", signup_path %>
+
