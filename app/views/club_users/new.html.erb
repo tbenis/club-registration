@@ -1,11 +1,15 @@
-<h1> aDD MEMBER TO CLUB</h1>
-
-<h1>Create a new Club</h1>
+<h1> Join the <%#= @club.name %> club! </h1>
 <p> <%#= flash[:error] %> </p>
+<%= form_for(@club_user, url: club_club_users_path(@club_user.club_id))  do |f| %>
+  <div class="form-group">
+  <label for="club_user_reason"> Please breifly state why you would like to join this club</label>
+   <%= f.text_area :reason, class:"form-control" %>
+  </div>
+  <br>
+  <br>
+  <div class="text-center">
+  <%= f.submit "Join this club!", class: "btn btn-primary" %>
+  </div>
+<%end%>
+<%#, url: club_club_users_path(@club_user.club_id)%>
 
-<%= form_for(@club_user, url: club_club_users_path(params[:club_id]))  do |f| %>
-  
-  
-  
-  <%= f.submit "Create Club"%>
-<% end %>
