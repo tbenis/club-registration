@@ -39,8 +39,28 @@ class ClubsController < ApplicationController
     end
   end
 
-        end
+  def edit
+    @club = Club.find_by_id(params[:id])
+    @club_users = ClubUser.where(club_id: @club.id)
+  end
+
+  def update
+    @club = Club.find_by(id: params[:id])
+    @club_users = ClubUser.where(club_id: @club.id)
+    @club.update(club_params)
+    if @club.valid?
+      redirect_to club_path(@club)
+    else
+      render :edit
+      # redirect_to edit_club_path(@club)
     end
+  end
+
+  def destroy
+    @club = Club.find_by_id(params[:id])
+    @club.destroy
+    redirect_to user_clubs_path(current_user)
+  end
 
   private
 
