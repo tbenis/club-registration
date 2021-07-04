@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :clubs, only: [:index, :show]
+  resources :clubs#, only: [:index, :show, :new]
 
   resources :users do
     resources :clubs
@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   end
 
   resources :clubs do
+    resources :club_users
+  end
+  # http://127.0.0.1:3000/clubs/1/club_users/new
+
+  resources :users do
     resources :club_users
   end
   # resources :users do
