@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_010809) do
+ActiveRecord::Schema.define(version: 2021_07_04_162843) do
 
   create_table "club_users", force: :cascade do |t|
     t.integer "user_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_010809) do
     t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "reason"
     t.index ["club_id"], name: "index_club_users_on_club_id"
     t.index ["user_id"], name: "index_club_users_on_user_id"
   end
