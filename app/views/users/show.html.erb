@@ -12,9 +12,21 @@
   <%end%>
 <%end%>
 <br>
-  <h4> <%= @user.name %>'s Profile </h4>
+<% if @club_users.any?%>
+  <% if @club_user == current_user%>
+    <h5>Here are all  the  clubs you have  created:</h5>
+  <%else%>
+    <h4> <%= @user.name %>'s Profile </h4>
+  <%end%>
+  <h1>Currently a Member of:</h1>
+  <ul>
+    <% @club_users.each do |cu|%>
+      <li><%= link_to cu.club.name, club_path(cu.club.id)%> Created by: <%= link_to cu.club.user.name, user_path(cu.club.user.id) %></li>
+    <% end %>
+  </ul>
+<% else%>
+  <h5>You are not currently a member of any clubs</h5>
 <%end%>
-
 <br>
 <br>
 <br>
