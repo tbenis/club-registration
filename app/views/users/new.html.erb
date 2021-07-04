@@ -1,19 +1,24 @@
 <%= render partial: 'layouts/errors', locals: {obj: @user} %>
 <h1>Sign Up</h1>
-
 <%= form_for(@user) do |f| %>
-  Name:  <%= f.text_field :name%>
-  Email:  <%= f.email_field :email%>
-  Password:  <%= f.password_field :password%>
-  
-  <%= f.submit "Signup"%>
+<div class="form-group">
+    <label for="user_name">Name</label>
+    <%= f.text_field :name, class:"form-control",  placeholder:"Name" %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="user_email">Email</label>
+      <%= f.email_field :email, class:"form-control", placeholder: "Email" %>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="user_password">Password</label>
+      <%= f.password_field :password, class:"form-control", placeholder: "Password"%>
+    </div>
+  </div>
+</div>
+<%= f.submit "Signup", class: "btn btn-primary"%>
 <% end %>
-
-
 <br>
+<%= link_to "back to welcome page", '/' if !session[:user_id].present? %>
+OR
+<%= link_to "Login", login_path %>
 <br>
-<br>
-<h6>TO DO:</h6>
-
-<p> Make page look pretty </p>
-<p>  </p>
