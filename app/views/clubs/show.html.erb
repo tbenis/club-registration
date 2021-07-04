@@ -4,6 +4,9 @@
 <%else%>
   <%= link_to 'Leave this club', user_club_user_path(current_user.id), class:"btn btn-secondary" , method: :delete, data: { confirm: 'Are you sure you want to leave this club?' } %>
 <%end%>
+<% if @current_user.id  == @club.user_id || (@club_users.exists?(user_id: current_user.id) && @club_user_user.admin) %>
+  <%= link_to "Club Edit Page", edit_club_path(@club.id) if session[:user_id].present? %>
+<%end%>
 <h2>Bio</h2>
 
 <b>Description</b>
