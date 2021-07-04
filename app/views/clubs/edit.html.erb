@@ -15,6 +15,8 @@
   <%= link_to 'Delete the club', club_path(@club.id), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'This action cannot be undone! Are you sure you want to delete this club?'} %>
   <br>
   <br>
+<br>
+<% if @club_users %>
   <h4>Edit Member Admin status:</h4>
   <br>
   <% @club_users.each do |cu| %>
@@ -26,5 +28,6 @@
       <%= link_to 'Remove this member?', user_club_user_path(cu.user_id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to Remove this member' } %>
     <% end %>
   <% end %>
+<% end %>
 <br>
 <%= link_to '< Back to club page', club_path(params[:id])%>
