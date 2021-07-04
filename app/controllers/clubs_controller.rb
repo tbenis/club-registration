@@ -11,9 +11,6 @@ class ClubsController < ApplicationController
     if @club.save
       @club_user = current_user.club_users.build(club_id: @club.id, admin: true, reason: "Club Founder")
       @club_user.save
-      # club_users_controller.response = response
-      # redirect_to club_club_users_path()
-      # redirect_to new_club_club_user_path(@club)
       redirect_to club_path(@club.id)
     else
       flash[:error] = @club.errors.full_messages
@@ -33,7 +30,6 @@ class ClubsController < ApplicationController
   def index
     if params[:user_id] && @user = User.find_by(id: params[:user_id])
       @clubs = @user.clubs
-      # @club_user = ClubUsers.find_by(club_id: @cli)
     else
       @clubs = Club.all
     end
@@ -52,7 +48,6 @@ class ClubsController < ApplicationController
       redirect_to club_path(@club)
     else
       render :edit
-      # redirect_to edit_club_path(@club)
     end
   end
 
