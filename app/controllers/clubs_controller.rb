@@ -1,7 +1,9 @@
 class ClubsController < ApplicationController
-    def new
-        @club  = Club.new
-    end
+  before_action :redirect_if_not_logged_in
+
+  def new
+    @club = Club.new
+  end
 
     def create
         @club = Club.new(club_params)
@@ -20,19 +22,22 @@ class ClubsController < ApplicationController
         redirect_to '/clubs/new' if !@club
     end
 
-    def index
-
-        if params[:user_id] && @user = User.find_by(id: params[:user_id])
-            @clubs = @user.clubs
-        else
-        @clubs =  Club.all
+  def index
+    if params[:user_id] && @user = User.find_by(id: params[:user_id])
+      @clubs = @user.clubs
+      # @club_user = ClubUsers.find_by(club_id: @cli)
+    else
+      @clubs = Club.all
+    end
+  end
 
         end
     end
 
-    private
+  private
 
-    def club_params
-        params.require(:club).permit(:name, :description, :date_founded)
-    end
+  def club_params
+    params.require(:club).permit(:name, :description, :date_founded)
+  end
+
 end
