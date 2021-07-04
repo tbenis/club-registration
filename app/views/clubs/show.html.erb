@@ -8,13 +8,12 @@
   <%= link_to "Club Edit Page", edit_club_path(@club.id) if session[:user_id].present? %>
 <%end%>
 <h2>Bio</h2>
-
 <b>Description</b>
-<p><%=@club.description%></p>
-
+<p> <%= @club.description %> </p>
 <b>Date Created:</b>
-<p><%=@club.date_founded%></p>
-
+<p> <%= @club.date_founded.strftime("%D") %> </p>
+<b>Creatd By:</b>
+<p> <%= link_to @club.user.name, user_path(@club.user.id) %> </p>
 <br>
 <br>
 <br>
