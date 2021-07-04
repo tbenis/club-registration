@@ -2,6 +2,14 @@
 <%= render partial: 'layouts/errors', locals: {obj: @club_user} %>
 <p> <%#= flash[:error] %> </p>
 <%= form_for(@club_user, url: club_club_users_path(@club_user.club_id))  do |f| %>
+  <% if params[:club_id] %>
+    <%= f.hidden_field :club_id %>
+  <% else %>
+    <div>
+      <%#= f.label :club_id, "Select a Club" %>
+      <%#= f.collection_select :club_id, Club.all, :id, :name,  include_blank: true %>
+    </div>
+  <% end %>
   <div class="form-group">
   <label for="club_user_reason"> Please breifly state why you would like to join this club</label>
    <%= f.text_area :reason, class:"form-control" %>
