@@ -20,3 +20,14 @@ class ClubUsersController < ApplicationController
   end
 
 
+  def destroy
+    @club_user = ClubUser.find_by(user_id: params[:user_id])
+    @club_user.destroy
+    redirect_to club_path(params[:id])
+  end
+
+  private
+
+  def club_user_params
+    params.require(:club_user).permit(:club_id, :admin, :reason)
+  end
