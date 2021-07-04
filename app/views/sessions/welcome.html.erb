@@ -1,10 +1,18 @@
-<h1>Welcome Club registration</h1>
+<%= image_tag("clubs-orgs.jpeg", size: "650x350", alt: "Image with students") %>
+<br><br>
+
 
 <p>
-    <%= link_to "Login", login_path %>
-    OR
-    <%= link_to "Signup", signup_path %>
-    OR
-
-    <%= link_to "Sign in or Signup with google", '/auth/google_oauth2',  method: :post %>
+<div class="text-center">
+<h1>Campus Club Registration </h1>
+<br>
+<br>
+  <%= link_to "Login", login_path, class: "btn btn-primary"%>
+  OR
+  <%= link_to "Signup", signup_path, class: "btn btn-primary"%>
+  OR
+  <%= link_to "Sign in or Signup with google", '/auth/google_oauth2',  method: :post, class: "btn btn-primary"%>
+  </div>
 </p>
+
+<!-- -->
