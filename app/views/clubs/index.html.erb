@@ -1,14 +1,12 @@
     <%= show_index_title_conditionally %>
-
 <ol>
-    <% @clubs.each do |c|%>
+  <% @clubs.each do |c|%>
     <li>
-       <%= link_to c.name, club_path(c.id)%>  <br>
-        <%#= c.description %>
+      <%= link_to c.name, club_path(c.id)%> Created by: <%= link_to c.user.name, user_path(c.user_id)%>  <br>
+      <%#= link_to "Join a club", new_club_club_user_path(@c.id) if session[:user_id].present? %>
     </li>
-    <%end%>
+  <%end%>
 </ol>
-
 <br>
 <br>
 <br>
