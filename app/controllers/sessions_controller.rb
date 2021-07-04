@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     redirect_to user_path(current_user.id) if logged_in?
   end
 
-  # def create
   def create
     if params[:provider] == "google_oauth2"
       @user = User.create_by_google_omniauth(auth)
