@@ -11,22 +11,28 @@ class SessionsController < ApplicationController
   def new
     redirect_to user_path(current_user.id) if logged_in?
   end
-    def create  
-        @user = User.find_by(email: params[:user][:email])
-        puts "$$$$$$$$$$$$ #{params[:user][:password]}"
-       
 
-        if @user.try(:authenticate, params[:user][:password])
-            puts "%%%%%%%%%%%%%%%%%%%%"
-            # byebug
-            session[:user_id]  = @user.id
-            redirect_to user_path(@user)
-        else 
-            flash[:error] = "Email or password is incorrect"
-            redirect_to login_path
-        end
+  # def create
+  def create
+    if params[:provider] == "google_oauth2"
+      @user = User.create_by_google_omniauth(auth)
+      session[:user_id] = @user.id
+      #   byebug
+      redirect_to user_path(@user)
+    else
+
+      @user = User.find_by(email: params[:user][:email])
+
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        # byebug
+        flash[:error] = "Sorry, login info was incorrect. Please try again."
+        redirect_to login_path
+      end
     end
-end
+  end
 
   def omniauth
     @user = User.create_by_google_omniauth(auth)
