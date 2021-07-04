@@ -17,8 +17,11 @@
   <h3>Current Club Members:</h3>
   <ul>
     <% @club_users.each do |cu|%>
+      <%if cu.admin%>
         <li><%= link_to cu.user.name, user_path(cu.user.id)%> <span>Admin.</span> </li>
+      <%else%>
         <li><%= link_to cu.user.name, user_path(cu.user.id)%> <span>Regular Member.</span> </li>
+      <%end%>
     <% end %>
   </ul>
     <% end %>
