@@ -28,6 +28,9 @@ gem 'omniauth'
 gem 'dotenv-rails' 
 gem 'omniauth-rails_csrf_protection'
 
+gem 'bootstrap', '~>4.0.0'
+gem 'jquery-rails'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
