@@ -31,3 +31,4 @@ class ClubUsersController < ApplicationController
   def club_user_params
     params.require(:club_user).permit(:club_id, :admin, :reason)
   end
+end
