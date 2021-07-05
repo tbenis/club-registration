@@ -5,20 +5,32 @@
   <h4> <%= @user.name %>'s Profile </h4>
   <br>
 <%end%>
+  <%= link_to "Edit your profile", edit_user_path(@user.id) if authorize_user(@user.id) %>
+<br><br>
+  <% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, size: "150x150", alt: "Profile image of student" %> 
+    <%else%>
+    <%= image_tag("no_profile_image.png", size: "200x148", alt: "No profile image icon") %> 
+  <% end %>
+  
+  
+<!-- .representation(resize_to_limit: [100, 100]).processed.url -->
 <% if @user.clubs.length > 0%>
-  <h5>Here are all  the  clubs you you have  created:</h5>
+<br><br>
+  <% if @user == current_user%>
+    <h4>Here are all  the  clubs you have  created:</h4>
+  <%else%>
+  <h4>Here are all  the  clubs <%= @user.name %> created:</h4>
+  <%end%>
   <% @user.clubs.each do |uc|%>
     <p><%= link_to uc.name, club_path(uc.id) %> </p>
   <%end%>
 <%end%>
 <br>
+<%#= DateTime.new(2001,2,3,4,5,6).strftime("%D %r") %>
 <% if @club_users.any?%>
-  <% if @club_user == current_user%>
-    <h5>Here are all  the  clubs you have  created:</h5>
-  <%else%>
-    <h4> <%= @user.name %>'s Profile </h4>
-  <%end%>
-  <h1>Currently a Member of:</h1>
+  
+  <h5>Currently a Member of:</h5>
   <ul>
     <% @club_users.each do |cu|%>
       <li><%= link_to cu.club.name, club_path(cu.club.id)%> Created by: <%= link_to cu.club.user.name, user_path(cu.club.user.id) %></li>
@@ -27,9 +39,7 @@
 <% else%>
   <h5>You are not currently a member of any clubs</h5>
 <%end%>
-<br>
-<br>
-<br>
+<!-- 
 <h6>TO DO:</h6>
 <p> Show clubs this user created with button to delete each club </p>
 <p> Show clubs this user joined with button to leave each club
@@ -41,3 +51,4 @@
 <p>add social media links (as database column) and  display  in view</p>
 <p> Make page look pretty </p>
 <p>  </p>
+-->

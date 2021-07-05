@@ -1,0 +1,7 @@
+<h1> Maintainance page for <%#= @club.name %> club. </h1>
+<%#= render partial: 'layouts/errors', locals: {obj: @club_user} %>
+<% @club_users.each do |cu| %>
+  <br>
+  <%= link_to cu.user.name, user_path(cu.user.id)%>
+  <br>
+<% end %>
