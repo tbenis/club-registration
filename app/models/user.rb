@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :club_users, :dependent => :destroy
 
   # has_many :clubs, through: :club_users
+  has_one_attached :avatar
   has_many :club_memberships, through: :club_users, source: :club, :dependent => :destroy #Clubs they joined
   has_many :club_memberss, through: :club_users, source: :club, :dependent => :destroy #Clubs they joined
   has_many :clubs, :dependent => :destroy #clubs they created

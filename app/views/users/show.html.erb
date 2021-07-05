@@ -5,6 +5,11 @@
   <h4> <%= @user.name %>'s Profile </h4>
   <br>
 <%end%>
+  <% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, size: "150x150", alt: "Profile image of student" %> 
+    <%else%>
+    <%= image_tag("no_profile_image.png", size: "200x148", alt: "No profile image icon") %> 
+  <% end %>
 <% if @user.clubs.length > 0%>
   <h5>Here are all  the  clubs you you have  created:</h5>
   <% @user.clubs.each do |uc|%>
