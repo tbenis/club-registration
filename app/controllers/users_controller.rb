@@ -28,27 +28,9 @@ class UsersController < ApplicationController
     # redirect_to '/' if !@user
   end
 
-  def edit
-    redirect_if_not_authorized
-    @user = User.find_by_id(params[:id])
-  end
-
-  def update
-    redirect_if_not_authorized
-    @user = User.find_by(id: params[:id])
-    @user.update(user_params)
-    if @user.valid?
-      redirect_to user_path(@user)
-    else
-      render :edit
-    end
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, session[:user_id], :avatar)
+    params.require(:user).permit(:name, :email, :password, session[:user_id])
   end
-
-
 end

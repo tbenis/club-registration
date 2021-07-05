@@ -1,29 +1,12 @@
-<br>
 <%= show_index_title_conditionally %>
-<br><br>
-<div class="row row-cols-1 row-cols-md-3" style="width: 16rem;" >
+<ol>
   <% @clubs.each do |c|%>
-    <div class="col mb-4">
-      <div class="card h-100">
-        <% if c.logo.attached? %>
-          <%= image_tag c.logo, size: "150x150", alt: "Club Logo", class: "card-img-top"%>
-        <%else%>
-          <%= image_tag("no_logo.png", size: "200x148", class: "card-img-top", alt: "No logo icon") %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"> <%= link_to c.name, club_path(c.id)%> </h5>
-          <p class="card-text"> <%= c.summary %> </p>
-          <%#= link_to "Join a club", new_club_club_user_path(@c.id) if session[:user_id].present? %>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Created:  <%= c.date_founded.strftime("%d %B %Y") %> </small> <br>
-          <small class="text-muted">By: <%= link_to c.user.name, user_path(c.user_id) %> </small> 
-        </div>
-      </div>
-    </div>
+    <li>
+      <%= link_to c.name, club_path(c.id)%> Created by: <%= link_to c.user.name, user_path(c.user_id)%>  <br>
+      <%#= link_to "Join a club", new_club_club_user_path(@c.id) if session[:user_id].present? %>
+    </li>
   <%end%>
-</div>
-<!-- 
+</ol>
 <br>
 <br>
 <br>
@@ -33,5 +16,3 @@
 <p>
   Add links/buttons to leave club current user is a part of
 </p>
-Created by: <%#= link_to c.user.name, user_path(c.user_id)%>
--->

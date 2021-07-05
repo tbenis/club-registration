@@ -13,11 +13,7 @@
       <label for="user_password">Password</label>
       <%= f.password_field :password, class:"form-control", placeholder: "Password"%>
     </div>
-    <label for="user_avatar">Profile pic</label>
-    <%= f.file_field :avatar %>
-
   </div>
-  
 </div>
 <%= f.submit "Signup", class: "btn btn-primary"%>
 <% end %>
@@ -26,4 +22,3 @@
 OR
 <%= link_to "Login", login_path %>
 <br>
-

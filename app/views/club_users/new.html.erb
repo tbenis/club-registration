@@ -1,4 +1,4 @@
-<h1> Join <%= @club.name %>! </h1>
+<h1> Join the <%#= @club.name %> club! </h1>
 <%= render partial: 'layouts/errors', locals: {obj: @club_user} %>
 <p> <%#= flash[:error] %> </p>
 <%= form_for(@club_user, url: club_club_users_path(@club_user.club_id))  do |f| %>
@@ -21,6 +21,4 @@
   </div>
 <%end%>
 <%#, url: club_club_users_path(@club_user.club_id)%>
-<br><br>
-<%= link_to "< Back to club's page", club_path(params[:club_id])%>
 

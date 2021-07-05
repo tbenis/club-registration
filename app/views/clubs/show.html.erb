@@ -1,26 +1,17 @@
-<h1> <%= @club.name %>  </h1>
-<br>
+<h1> <%= @club.name %> Club  </h1>
 <% if !@club_users.exists?(user_id: current_user.id) %>
   <%= link_to "Join This club", new_club_club_user_path(@club.id), class:"btn btn-primary" if session[:user_id].present? %>
 <%else%>
   <%= link_to 'Leave this club', user_club_user_path(current_user.id), class:"btn btn-secondary" , method: :delete, data: { confirm: 'Are you sure you want to leave this club?' } %>
-<%end%> <br><br>
-<% if @club.logo.attached? %>
-  <%= image_tag @club.logo, size: "150x150", alt: "Club Logo" %>
-<%else%>
-  <%= image_tag("no_logo.png", size: "200x148", alt: "No logo icon") %>
-<% end %> 
-
+<%end%>
 <% if @current_user.id  == @club.user_id || (@club_users.exists?(user_id: current_user.id) && @club_user_user.admin) %>
   <%= link_to "Club Edit Page", edit_club_path(@club.id) if session[:user_id].present? %>
 <%end%>
-<br> <br>
-<b>Summary</b>
-<p> <%= @club.summary %> </p>
+<h2>Bio</h2>
 <b>Description</b>
 <p> <%= @club.description %> </p>
 <b>Date Created:</b>
-<p> <%= @club.date_founded.strftime("%d %B %Y") %> </p>
+<p> <%= @club.date_founded.strftime("%D") %> </p>
 <b>Creatd By:</b>
 <p> <%= link_to @club.user.name, user_path(@club.user.id) %> </p>
 <%if @club_users.length > 0 %>
@@ -28,27 +19,19 @@
   <ul>
     <% @club_users.each do |cu|%>
       <%if cu.admin%>
-        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <small class="text-muted">Admin.</small> <br>
-        </li>
+        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <span>Admin.</span> </li>
       <%else%>
-        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <small class="text-muted">Regular Member. </small> <br>
-        </li>
+        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <span>Regular Member.</span> </li>
       <%end%>
     <% end %>
   </ul>
 <%else%>
   <h3>There are currently no members in this club</h3>
 <% end %>
- <br><br>
-<% if !@club_users.exists?(user_id: current_user.id) %>
-  <%= link_to "Join This club", new_club_club_user_path(@club.id), class:"btn btn-primary" if session[:user_id].present? %>
-<%else%>
-  <%= link_to 'Leave this club', user_club_user_path(current_user.id), class:"btn btn-secondary" , method: :delete, data: { confirm: 'Are you sure you want to leave this club?' } %>
-<%end%>
 <br>
-<!-- 
+<br>
+<br>
 <h6>DEVELOPER TO DO:</h6>
 </p>
 <p>add social media links (as database column) and  display  in view</p>
 <p> Make page look pretty </p>
--->
