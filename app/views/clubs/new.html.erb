@@ -2,11 +2,18 @@
 <%= render partial: 'layouts/errors', locals: {obj: @club} %>
 <%= form_for(@club) do |f| %>
   <label for="club_name"> Club Name</label>
-    <%= f.text_field :name, class:"form-control"%>
-    <label for="club_desctription">Description</label>
-    <%= f.text_area :description, class:"form-control"%>
-    <label for="club_date_founded">Date Founded</label>
-   <%= f.date_field :date_founded, class:"form-control"%>
-   <br> <br>
+  <%= f.text_field :name, class:"form-control"%>
+  <br>
+  <label for="club_summary"> In 1 to two sentences, what is the purpose of your club? </label>
+  <%= f.text_field :summary, class:"form-control"%>
+  <br>
+  <label for="club_desctription">In more words, explain how your club came abuut and how it functions</label>
+  <%= f.text_area :description, class:"form-control"%>
+  <br>
+  <label for="club_date_founded">Date Founded</label>
+  <%= f.date_field :date_founded, class:"form-control"%>
+  <br>
+  <br>
+  <br>
   <%= f.submit "Create Club", class: "btn btn-primary btn-lg"%>
 <% end %>

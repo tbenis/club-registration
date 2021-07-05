@@ -1,10 +1,10 @@
 <%= show_index_title_conditionally %>
 <ol>
   <% @clubs.each do |c|%>
-    <li>
-      <%= link_to c.name, club_path(c.id)%> Created by: <%= link_to c.user.name, user_path(c.user_id)%>  <br>
-      <%#= link_to "Join a club", new_club_club_user_path(@c.id) if session[:user_id].present? %>
-    </li>
+          <%= image_tag("no_logo.png", size: "200x148", class: "card-img-top", alt: "No logo icon") %>
+          <p class="card-text"> <%= c.summary %> </p>
+          <small class="text-muted">Created:  <%= c.date_founded.strftime("%d %B %Y") %> </small> <br>
+          <small class="text-muted">By: <%= link_to c.user.name, user_path(c.user_id) %> </small> 
   <%end%>
 </ol>
 <br>

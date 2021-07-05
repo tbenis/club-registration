@@ -7,7 +7,9 @@
 <% if @current_user.id  == @club.user_id || (@club_users.exists?(user_id: current_user.id) && @club_user_user.admin) %>
   <%= link_to "Club Edit Page", edit_club_path(@club.id) if session[:user_id].present? %>
 <%end%>
-<h2>Bio</h2>
+<br> <br>
+<b>Summary</b>
+<p> <%= @club.summary %> </p>
 <b>Description</b>
 <p> <%= @club.description %> </p>
 <b>Date Created:</b>
