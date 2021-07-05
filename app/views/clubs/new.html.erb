@@ -13,6 +13,8 @@
   <label for="club_date_founded">Date Founded</label>
   <%= f.date_field :date_founded, class:"form-control"%>
   <br>
+  <label for="club_logo">Upload Club Logo</label>
+  <%= f.file_field :logo %>
   <br>
   <br>
   <%= f.submit "Create Club", class: "btn btn-primary btn-lg"%>
