@@ -5,6 +5,8 @@
   <h4> <%= @user.name %>'s Profile </h4>
   <br>
 <%end%>
+  <%= link_to "Edit your profile", edit_user_path(@user.id) if authorize_user(@user.id) %>
+<br><br>
   <% if @user.avatar.attached? %>
   <%= image_tag @user.avatar, size: "150x150", alt: "Profile image of student" %> 
     <%else%>
