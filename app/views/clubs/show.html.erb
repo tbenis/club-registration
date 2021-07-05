@@ -3,7 +3,13 @@
   <%= link_to "Join This club", new_club_club_user_path(@club.id), class:"btn btn-primary" if session[:user_id].present? %>
 <%else%>
   <%= link_to 'Leave this club', user_club_user_path(current_user.id), class:"btn btn-secondary" , method: :delete, data: { confirm: 'Are you sure you want to leave this club?' } %>
-<%end%>
+<%end%> <br><br>
+<% if @club.logo.attached? %>
+  <%= image_tag @club.logo, size: "150x150", alt: "Club Logo" %>
+<%else%>
+  <%= image_tag("no_logo.png", size: "200x148", alt: "No logo icon") %>
+<% end %> 
+
 <% if @current_user.id  == @club.user_id || (@club_users.exists?(user_id: current_user.id) && @club_user_user.admin) %>
   <%= link_to "Club Edit Page", edit_club_path(@club.id) if session[:user_id].present? %>
 <%end%>
