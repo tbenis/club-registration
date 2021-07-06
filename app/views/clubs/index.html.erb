@@ -1,7 +1,7 @@
 <br>
 <%= show_index_title_conditionally %>
 <br><br>
-<div class="row row-cols-1 row-cols-md-3" style="width: 16rem;" >
+<div class="row row-cols-1 row-cols-md-3"  >
   <% @clubs.each do |c|%>
     <div class="col mb-4">
       <div class="card h-100">
@@ -12,7 +12,7 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title"> <%= link_to c.name, club_path(c.id)%> </h5>
-          <p class="card-text"> <%= c.summary %> </p>
+          <p class="card-text"> <%= c.summary.split[0..6].join(' ') %> </p>
           <%#= link_to "Join a club", new_club_club_user_path(@c.id) if session[:user_id].present? %>
         </div>
         <div class="card-footer">
