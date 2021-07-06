@@ -38,8 +38,8 @@
       Club Admin?  <%= f.check_box :admin %>
       <br>
       <%= f.submit "Update", class: "btn btn-primary"%>
+    <% end %> <br>
       <%= button_to 'Remove this member?', user_club_user_path(cu.user_id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to Remove this member' } %>
-    <% end %>
   <% end %>
 <% end %>
 <br>

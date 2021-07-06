@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
       #   byebug
       redirect_to user_path(@user)
     else
-
       @user = User.find_by(email: params[:user][:email])
 
       if @user && @user.authenticate(params[:user][:password])
@@ -45,5 +44,4 @@ class SessionsController < ApplicationController
   def auth
     request.env["omniauth.auth"]
   end
-
 end
