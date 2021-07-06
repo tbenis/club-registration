@@ -52,6 +52,18 @@ end
 @cu9 = ClubUser.create(user_id: 5, club_id: 9, admin: true, reason: "Club Founder")
 @cu10 = ClubUser.create(user_id: 5, club_id: 10, admin: true, reason: "Club Founder")
 
+@cu11 = ClubUser.create(user_id: 6, club_id: 1, admin: false, reason: "Club member added from seed file")
+@cu12 = ClubUser.create(user_id: 6, club_id: 2, admin: false, reason: "Club member added from seed file")
+@cu13 = ClubUser.create(user_id: 7, club_id: 3, admin: false, reason: "Club member added from seed file")
+@cu14 = ClubUser.create(user_id: 7, club_id: 4, admin: false, reason: "Club member added from seed file")
+@cu15 = ClubUser.create(user_id: 8, club_id: 5, admin: false, reason: "Club member added from seed file")
+
+@cu16 = ClubUser.create(user_id: 8, club_id: 6, admin: false, reason: "Club member added from seed file")
+@cu17 = ClubUser.create(user_id: 9, club_id: 7, admin: false, reason: "Club member added from seed file")
+@cu18 = ClubUser.create(user_id: 9, club_id: 8, admin: false, reason: "Club member added from seed file")
+@cu19 = ClubUser.create(user_id: 5, club_id: 9, admin: false, reason: "Club member added from seed file")
+@cu20 = ClubUser.create(user_id: 5, club_id: 10, admin: false, reason: "Club member added from seed file")
+
 @cu1.save
 @cu2.save
 @cu3.save
@@ -62,3 +74,14 @@ end
 @cu8.save
 @cu9.save
 @cu10.save
+
+@cu11.save
+@cu12.save
+@cu13.save
+@cu14.save
+@cu15.save
+@cu16.save
+@cu17.save
+@cu18.save
+@cu19.save
+@cu20.save
