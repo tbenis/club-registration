@@ -37,6 +37,7 @@
       <%end%>
     <% end %>
   </ul>
+  <%= link_to "See all Members and admins of this club!", club_club_users_path(@club.id) %>
 <%else%>
   <h3>There are currently no members in this club</h3>
 <% end %>
