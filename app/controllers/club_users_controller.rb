@@ -8,7 +8,7 @@ class ClubUsersController < ApplicationController
 
   def create
     @club_user = current_user.club_users.build(club_user_params)
-
+    @club = Club.find_by_id(params[:club_id])
     if @club_user.club.user_id != current_user.id
       if @club_user.save
         @club_user.admin = false
@@ -49,8 +49,8 @@ class ClubUsersController < ApplicationController
   end
 
   def destroy
-    @club_user = ClubUser.find_by(user_id: params[:user_id])
-    @club_user.destroy
+   
+    ClubUser.find_by(user_id: params[:user_id], club_id: params[:id]).destroy
     redirect_to club_path(params[:id])
   end
 
