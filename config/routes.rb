@@ -14,11 +14,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :clubs
   end
-
-  resources :clubs do
-    resources :users
-  end
-
+  
   resources :clubs do
     resources :club_users
   end
