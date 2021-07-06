@@ -1,5 +1,5 @@
 # README
-
+<!-- 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -22,3 +22,56 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+-->
+# Random Jokes App
+![](https://phase2-images.s3.amazonaws.com/clubs-orgs.jpeg)
+
+
+## Overview
+
+The Club Registration app was created to fill a need in the institution I previously graduated from. There is no simple way for students find all clubs and organizations on campus and join the ones they like. With my Club Registration app, students can log in and view all clubs available on campus. They also have the ability to create their own clubs and assign admins.
+
+## How to run this project
+1. Clone the Repository
+    ``` 
+     % git clone https://github.com/tbenis/club-registration.git
+    ```
+2. Bundle install dependecies
+    ``` 
+    % bundle install
+   ```
+3. Run Migrations
+    ``` 
+    % rake db:migrate
+   ```
+   <!--
+    you should see something like this:
+        ![](https://phase2-images.s3.amazonaws.com/Screen+Shot+2021-04-30+at+7.20.03+AM.png)
+    
+    If you do not see a message that looks like the one above in the terminal, that means migrations did not work. Delete the 'development.sqlite' file in the 'db' folder and try ```rake db:migrate``` again.
+    ![](https://phase2-images.s3.amazonaws.com/Screen+Shot+2021-04-30+at+7.18.44+AM.png) -->
+
+4. Seed Database
+    ``` 
+    % rake db:seed
+   ```
+5. Run server (Shotgun (preferred) or Rackup)
+    ``` 
+   % rails s
+   ```
+6. Navigate to the url in a web browser:
+    http://localhost:3000/
+
+### Additional Information (Password for seeded users)
+Regarding the seeded data, the password for all created users after running ```rake db:seed```  is 'password'
+Each user has a unique email. Head to the terminal and type ```% rails c```. Once the console comes up, type ```User.all```  and that will show you all 10 users and their emails. Remember to use ```password``` to login in a browser.
+
+
+
+### Video Demo
+<!-- <a href="https://www.youtube.com/watch?v=juoTqJ3lNx8" target="_blank">Youtube</a> -->
+
+### Author(s)
+ Benis Tambe >>>> [GitHub -- Benis Tambe](https://github.com/tbenis)
+### License:
+MIT
