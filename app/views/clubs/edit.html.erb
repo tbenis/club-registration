@@ -34,10 +34,11 @@
   <% @club_users.each do |cu| %>
     <li>  <%= cu.user.name %> </li>
     <p>Reason for joining: <%= cu.reason %> </p>
-    <%= form_for(cu, url: user_club_user_path(cu.user_id, cu.id))  do |f| %>
+    <%= form_for(cu, url: user_club_user_path(cu.user_id))  do |f| %>
       Club Admin?  <%= f.check_box :admin %>
+      <br>
       <%= f.submit "Update", class: "btn btn-primary"%>
-      <%= link_to 'Remove this member?', user_club_user_path(cu.user_id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to Remove this member' } %>
+      <%= button_to 'Remove this member?', user_club_user_path(cu.user_id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to Remove this member' } %>
     <% end %>
   <% end %>
 <% end %>

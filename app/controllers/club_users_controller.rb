@@ -40,7 +40,7 @@ class ClubUsersController < ApplicationController
   end
 
   def update
-    @club_user = ClubUser.find_by_id(params[:id])
+    @club_user = ClubUser.find_by(user_id: params[:user_id], club_id: params[:id])
     @club_user.admin = params[:club_user][:admin]
     @club_user.save #(validate: false)
     # byebug

@@ -12,18 +12,18 @@
     <!-- 
     <div class="collapse navbar-collapse" id="navbarNav">
     -->
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <%= link_to "Create a Club", new_user_club_url(session[:user_id]), class: "nav-link" if session[:user_id].present? %>
-          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-        </li>
-        <li class="nav-item">
-          <%= link_to "All clubs", clubs_path, class: "nav-link" if session[:user_id].present?  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" if session[:user_id].present? %>
-        </li>
-      </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <%= link_to "Create a Club", new_user_club_url(session[:user_id]), class: "nav-link" if logged_in? %>
+        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+      </li>
+      <li class="nav-item">
+        <%= link_to "All clubs", clubs_path, class: "nav-link" if logged_in?  %>
+      </li>
+      <li class="nav-item">
+        <%= button_to "Log Out", logout_path, method: :delete, class: "nav-link btn btn-primary" if logged_in? %>
+      </li>
+    </ul>
     <!-- </div> -->
   </nav>
 <% else %>
@@ -49,10 +49,7 @@
           <%= link_to "Signup", signup_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign in or Signup with google", '/auth/google_oauth2',  method: :post, class: "nav-link" %>
-        </li>
-      </ul>
-      <!-- 
+        <%= button_to "Sign in or Signup with google", '/auth/google_oauth2',  method: :post, class: "nav-link btn btn-primary" %>
     </div>
      -->
   </nav>
