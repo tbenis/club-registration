@@ -12,6 +12,8 @@
     <%else%>
     <%= image_tag("no_profile_image.png", size: "200x148", alt: "No profile image icon") %> 
   <% end %>
+  <br><br>
+<small class="text-muted"> Contact: <%=  @user.email %> </small>
   
   
 <!-- .representation(resize_to_limit: [100, 100]).processed.url -->
@@ -33,7 +35,7 @@
   <h5>Currently a Member of:</h5>
   <ul>
     <% @club_users.each do |cu|%>
-      <li><%= link_to cu.club.name, club_path(cu.club.id)%> Created by: <%= link_to cu.club.user.name, user_path(cu.club.user.id) %></li>
+      <li><%= link_to cu.club.name, club_path(cu.club.id)%> <small class="text-muted"> Created by: <%= link_to cu.club.user.name, user_path(cu.club.user.id) %> </small>  </li>
     <% end %>
   </ul>
 <% else%>
@@ -41,7 +43,7 @@
   <h5>You are not currently a member of any clubs</h5>
   <br><br>
 
-  <%= link_to "Create a Club", new_user_club_url(session[:user_id]) if logged_in? %> |
+  <%= link_to "Create a Club", new_club_url if logged_in? %> |
   <%= link_to "Join an existing club", clubs_path if session[:user_id].present?  %>
 
 <%end%>

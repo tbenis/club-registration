@@ -3,7 +3,7 @@ module ClubsHelper
     if @user
       content_tag(:h1, "Here are all of #{@user.name}'s clubs:")
     else
-      content_tag(:h1, "Here are all existing clubs:", class: "club_index_header")
+      content_tag(:h1, "Here are all existing clubs:")
     end
   end
 end
