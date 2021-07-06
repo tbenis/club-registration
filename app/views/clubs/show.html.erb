@@ -27,16 +27,12 @@
 <p> <%= @club.date_founded.strftime("%d %B %Y") %> </p>
 <b>Creatd By:</b>
 <p> <%= link_to @club.user.name, user_path(@club.user.id) %> <small class="text-muted"> Contact: <%=  @club.user.email %> </small></p>
-
 <%if @club_users.length > 0 %>
-  <h3>Current Club Members:</h3>
+  <h3>Current Club Admins:</h3>
   <ul>
     <% @club_users.each do |cu|%>
       <%if cu.admin%>
         <li><%= link_to cu.user.name, user_path(cu.user.id)%> <small class="text-muted">Admin.</small> <br>
-        </li>
-      <%else%>
-        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <small class="text-muted">Regular Member. </small> <br>
         </li>
       <%end%>
     <% end %>
