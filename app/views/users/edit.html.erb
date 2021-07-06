@@ -7,7 +7,7 @@
     <label for="user_email">Email</label>
     <%= f.email_field :email, class:"form-control"%> <br>
     <label for="user_avatar">Profile pic</label> <br>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, class:"form-control" %>
   </div> <br>
   <%= f.submit "Update your info", class: "btn btn-primary"%>
 <% end %>
