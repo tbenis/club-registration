@@ -37,7 +37,13 @@
     <% end %>
   </ul>
 <% else%>
+<br> <br>
   <h5>You are not currently a member of any clubs</h5>
+  <br><br>
+
+  <%= link_to "Create a Club", new_user_club_url(session[:user_id]) if logged_in? %> |
+  <%= link_to "Join an existing club", clubs_path if session[:user_id].present?  %>
+
 <%end%>
 <!-- 
 <h6>TO DO:</h6>
