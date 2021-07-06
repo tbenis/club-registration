@@ -54,7 +54,7 @@ class ClubsController < ApplicationController
   def destroy
     @club = Club.find_by_id(params[:id])
     @club.destroy
-    redirect_to user_clubs_path(current_user)
+    redirect_to user_path(current_user)
   end
 
   private
