@@ -1,0 +1,23 @@
+<h3><%= @club.name %> </h3>
+<% if @club.logo.attached? %>
+    <%= image_tag @club.logo, alt: "Club Logo" %>
+  <% end %> <br><br>
+<%if @club_user_club.length > 0 %>
+  <h3>Current Club Users:</h3> <br>
+  <ul>
+    <% @club_user_club.each do |cu|%>
+      <%if cu.admin%>
+        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <small class="text-muted">Admin.</small> <br>
+        </li>
+      <%else%>
+        <li><%= link_to cu.user.name, user_path(cu.user.id)%> <small class="text-muted">Regular Member. </small> <br>
+        </li>
+        
+      <%end%>
+    <% end %>
+    <%#= params %>
+  </ul>
+<%end%>
+<br>
+<%= link_to '< Back to club page', club_path(@club.id)%>
+

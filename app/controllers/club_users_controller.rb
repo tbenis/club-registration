@@ -28,7 +28,8 @@ class ClubUsersController < ApplicationController
   end
 
   def index
-    @club_users = ClubUser.all
+    @club = Club.find_by_id(params[:club_id])
+    @club_user_club = ClubUser.where(club_id: @club.id)
   end
 
   def show
