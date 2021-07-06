@@ -10,6 +10,8 @@ class Club < ApplicationRecord
   validate :date_founded_cannot_be_in_the_future
   validates :description, length: { minimum: 10 }
 
+  scope :alphabeticallize, -> { order(:name) }
+
   def date_founded_cannot_be_in_the_future
     if date_founded.present? && date_founded > Date.today
       errors.add(:date_founded, "Cannot be in the future")

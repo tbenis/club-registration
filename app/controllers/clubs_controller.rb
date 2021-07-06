@@ -31,7 +31,7 @@ class ClubsController < ApplicationController
     if params[:user_id] && @user = User.find_by(id: params[:user_id])
       @clubs = @user.clubs
     else
-      @clubs = Club.all
+      @clubs = Club.all.alphabeticallize
     end
   end
 
