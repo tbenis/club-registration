@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def new
+    flash[:error] = ""
     redirect_to user_path(current_user.id) if logged_in?
   end
 
