@@ -69,9 +69,10 @@ Regarding the seed data, the password for all created users after running ```rak
 Each user has a unique email. Head to the terminal and type ```% rails c```. Once the console comes up, type ```User.all```  and that will show you all 10 users and their emails. Remember to use ```password``` to login in a browser.
 
 
-<!-- 
+<br>
+
 ### Video Demo
-<a href="https://www.youtube.com/watch?v=juoTqJ3lNx8" target="_blank">Youtube</a> -->
+<a href="https://www.youtube.com/watch?v=vRlKIAR2ks0" target="_blank">Youtube Video Demo Link</a> 
 
 ### Author(s)
  Benis Tambe >>>> [GitHub -- Benis Tambe](https://github.com/tbenis)
