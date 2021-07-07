@@ -40,7 +40,11 @@ The Club Registration app was created to fill a need in the institution I previo
     ``` 
     % bundle install
    ```
-3. Run Migrations <small> [ in terminal]</small>
+3. Yarn install ```package.jason``` dependecies <small> [ in terminal]</small>
+    ``` 
+    % yarn install
+   ```
+4. Run Migrations <small> [ in terminal]</small>
     ``` 
     % rake db:migrate
    ```
@@ -51,15 +55,15 @@ The Club Registration app was created to fill a need in the institution I previo
     If you do not see a message that looks like the one above in the terminal, that means migrations did not work. Delete the 'development.sqlite' file in the 'db' folder and try ```rake db:migrate``` again.
     ![](https://phase2-images.s3.amazonaws.com/Screen+Shot+2021-04-30+at+7.18.44+AM.png) -->
 
-4. Seed Database <small> [ in terminal]</small>
+5. Seed Database <small> [ in terminal]</small>
     ``` 
     % rake db:seed
    ```
-5. Run server <small> [ in terminal]</small>
+6. Run server <small> [ in terminal]</small>
     ``` 
    % rails s
    ```
-6. Navigate to the url in a web browser <small> [port 3000]</small>:
+7. Navigate to the url in a web browser <small> [port 3000]</small>:
     http://localhost:3000/
 
 <br>
