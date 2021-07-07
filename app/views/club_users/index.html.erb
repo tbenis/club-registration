@@ -1,6 +1,6 @@
 <h3><%= @club.name %> </h3>
 <% if @club.logo.attached? %>
-    <%= image_tag @club.logo, alt: "Club Logo" %>
+    <%= image_tag @club.logo, size: "660x535", alt: "Club Logo" %>
   <% end %> <br><br>
 <%if @club_user_club.length > 0 %>
   <h3>Current Club Users:</h3> <br>
