@@ -6,22 +6,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render partial: 'layouts/nav' %> <br> <br>
+    <%= render partial: 'layouts/nav' %> <br>
+     <br>
     <div class="container">
       <div class="row d-flex justify-content-center">
         <!--Grid column-->
         <div class="col-md-6">
           <%= yield %>
-        <br>
-        <br>
-        <br>
-        <span> <%= "Currently Logged in: "+ current_user.name if logged_in? %> </span>
-        <br>
-        <br>
-        <br>
+          <br>
+          <br>
+          <br>
+          <span> <%= "Currently Logged in: "+ current_user.name if logged_in? %> </span>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
     </div>
